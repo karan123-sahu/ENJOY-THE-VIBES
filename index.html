@@ -7,10 +7,36 @@
     <title>saaregama songs</title>
     <style>
           
-          @media (max-width:500px){
+            @media (max-width:280px){
+            body{
+                background-color:blue;
+            }
+            .box{
+                height:140px;
+            }
+            audio{
+                width:100px;
+            }
+          }
+          @media (min-width:280px) and (max-width:380px){
+            body{
+                background-color:blue;
+            }
+            .box{
+                height:120px;
+            }
+            audio{
+                width:180px;
+            }
+          }
+          @media (min-width:380px) and (max-width:500px){
             body{
                 background-color:pink;
             }
+            .box{
+                height:90px;
+            }
+          }
             .box{
                 height:90px;
             }
@@ -185,4 +211,5 @@ function playNext(){
 
           </script>
 </body>
+
 </html>
