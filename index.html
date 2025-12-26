@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="here you will get the new songs">
+    <title>saaregama songs</title>
+    <style>
+          
+          @media (max-width:500px){
+            body{
+                background-color:pink;
+            }
+            .box{
+                height:90px;
+            }
+          }
+        @media (min-width:500px) and (max-width:950px){
+        body{
+            background-color:red;
+        }
+        h1{    
+            /* border:2px solid black; */
+            padding:10px;
+            display:inline;
+            color:white;
+
+          
+        }
+        .box{
+            height:70px;
+        }
+        li:hover{
+            color:black;
+        }
+        
+        }
+        @media screen and (min-width:950px){
+            body{
+                background-color:yellow;
+              
+            }
+           span:hover{
+            color:black;
+           
+           }
+           li:hover{
+            color:black;
+           }
+           
+
+        }
+        .container{
+            border:2px solid black;
+        }
+        li{  
+            cursor:pointer;
+            border:2px solid brown;
+            height:50px;
+            padding-top:10px;
+            padding-left:10px;
+            padding-bottom:5px;
+            background-color:bisque;
+            border-top-right-radius:40px;
+            border-bottom-left-radius:30px;
+            margin:5px;
+        
+        }
+        audio{
+            height:30px
+            
+        }
+       li:hover{
+        background-color:blue;
+       }
+       span{
+        
+        display:inline-block;
+        
+       }
+       .box:hover{
+            color:white;
+       }
+       
+       
+        @keyframes span {
+            from {
+                  width:20px;  
+            } to{
+                width:90px;
+            }
+        }
+        button{
+            margin:10px;
+        }
+        button:hover{
+            color:white;
+            background-color:red;
+        }
+       
+    </style>
+</head>
+<body>
+           <h1>------ENJOY THE VIBES------</h1>
+          <div class="container">
+            <ol >
+                <li class="box"  >
+                    <audio class="play"src="a.mp3" controls></audio>
+                   
+                  <span  > Tenu Shararat Sikhawan |Jasmine Sandlas | Madhubanti Bagchi | Ayesha K,Krystal |Dhurandhar Gehra Hua Lyrics - Arijit Singh |</span> 
+                  
+                    
+                </li>
+                <li class="box">
+                    <audio class="play" src="song1.mp3" controls></audio>
+                    <span>Rehman Dakait entry song |Akshay Khannaa</span>
+                </li>
+                <li class="box" >
+                    <audio class="play"src="music1.mp3" controls></audio>
+                    <span>'Billo Rani' Full Song | Dhan Dhana Dhan Goal |John Abraham | Pritam | Anand Raaj Anand Richa Sharma</span>
+                </li>
+                <li class="box" >
+                    <audio class="play"src="song2.mp3" controls></audio>
+                    <span>Gehra Hua | Dhurandhar | Ranveer Singh, Sara Arjun, Shashwat Sachdev, Arijit Singh, Irshad Kamil</span>
+                </li>
+                <li class="box" >
+                    <audio class="play"src="song3.mp3" controls></audio>
+                    <span>Ishq Jalakar - Karvaan | Dhurandhar | Ranveer Singh, Shashwat Sachdev, Aditya Dhar</span>
+                </li>
+                <li class="box" >
+                    <audio class="play"src="song4.mp3"controls></audio>
+                    <span>Dhurandhar - Title Track | Ranveer Singh, Shashwat Sachdev, Hanumankind, Jasmine Sandlas,Aditya Dhar</span>
+                </li>
+                <li class="box" >
+                    <audio class="play"src="song5.mp3"controls></audio>
+                    <span>Ez-Ez | Dhurandhar | Ranveer Singh, Shashwat Sachdev, Diljit Dosanjh, Hanumankind, Raj Ranjodh</span>
+                </li>
+                <li class="box">
+                    <audio class="play"src="song6.mp3" controls ></audio>
+                    <span>Run Down The City - Monica | Dhurandhar | Ranveer, Sara, Shashwat, Reble, Asha Bhosle, R.D. Burman</span>
+                </li>
+            </ol>
+            <button onclick="loop()">loop</button>
+          </div>
+          <script> let player=document.querySelectorAll('.play');
+            // function loop(){
+            
+            // let player = document.querySelectorAll('.play');
+let index = 0;
+
+function loop(){
+    index = 0;
+    playNext();
+}
+
+function playNext(){
+    if(index >= player.length){
+        index = 0;          // 🔁 remove this line if repeat nahi chahiye
+        // return;          // 🔁 repeat nahi chahiye to ye use karo
+    }
+
+    player[index].currentTime = 0;
+    player[index].play();
+
+    player[index].onended = () => {
+        index++;
+        playNext();
+    };
+}
+
+            //   for(let i=0;i<player.length;i++){
+            //     player[i].loop=true;
+            //     player[i].currentTime=0;
+            //     player[i].play();
+            //   }
+            // }
+         
+          player.forEach(p=>{
+            p.addEventListener('play',()=>{
+            player.forEach(other=>{
+                if(other!==p)
+                other.pause();
+            })})
+          })
+
+          </script>
+</body>
+</html>
